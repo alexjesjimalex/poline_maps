@@ -1,33 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div id="map"></div>
+  <div id="map">
+    <div class="loader"></div>
+  </div>
 {% endblock content %}
 
 {% block scripts %}
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-  // Trabajar con mapas
-  function initialize(){
-    axios.get('/api/routes')
-        .then(function(response){
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
 
-          function initMap() {
+    function initialize(){
+      axios.get('/api/routes')
+          .then(function(response){
 
-            var map = new google.maps.Map(document.getElementById('map'), {
-              center: {
-                lat: response.data.routes[0].lat,
-                lng: response.data.routes[0].lng
-              },
-              zoom: 8
-            });
-          }
-          google.load("maps", "3", {"other_params": "sensor=false","callback" : initMap });
-      });
-  }
-</script>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKcBrI7ULLNL-igiYaeZQ5oCNycm65YHc"></script> -->
+            function initMap() {
 
+              var element = document.getElementsByClassName("loader");
+              delete element;
 
+              var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                  lat: response.data.routes[0].lat,
+                  lng: response.data.routes[0].lng
+                },
+                zoom: 13
+              });
+
+              var flightPath = new google.maps.Polyline({
+                path: response.data.routes,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+              });
+
+              flightPath.setMap(map);
+            }
+            google.load("maps", "3", {"other_params": "sensor=false&key=AIzaSyCKcBrI7ULLNL-igiYaeZQ5oCNycm65YHc","callback" : initMap });
+        });
+    }
+  </script>
 {% endblock scripts %}
