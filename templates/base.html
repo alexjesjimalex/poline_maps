@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Pagina de inicio</title>
+    <style>
+      div#map {
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body onload="initialize()">
+    {% block content %}{% endblock content %}
+  </body>
+  {% block scripts %}{% endblock scripts %}
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div id="map"></div>
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  // Trabajar con mapas
+  function initialize(){
+    axios.get('/api/routes')
+        .then(function(response){
+
+          function initMap() {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+              center: {
+                lat: response.data.routes[0].lat,
+                lng: response.data.routes[0].lng
+              },
+              zoom: 8
+            });
+          }
+          google.load("maps", "3", {"other_params": "sensor=false","callback" : initMap });
+      });
+  }
+</script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKcBrI7ULLNL-igiYaeZQ5oCNycm65YHc"></script> -->
+
+
+{% endblock scripts %}
