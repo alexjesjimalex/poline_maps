@@ -2,7 +2,7 @@
 
 Práctica para usar Flask como API REST y Google Maps
 
-## ☀️ Para comezar
+## ☀️ Antes de comezar
 
 1. Clonar este repositorio en el directorio donde estes trabajando con proyectos:
 
@@ -25,4 +25,11 @@ RUTA_DEL_ENTORNO_VIRTUAL/Scripts/activate.bat
 
 ```
 pip install -r requirements.txt
+```
+
+## Correr la aplicación
+
+Para correr la aplicación solo necesitas escribir
+```
+python app.py
 ```
