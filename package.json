@@ -1,0 +1,36 @@
+{
+  "name": "polyline-maps",
+  "version": "1.0.0",
+  "description": "Práctica para usar Flask como API REST y Google Maps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/novakellogs/polylines-maps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/novakellogs/polylines-maps/issues"
+  },
+  "homepage": "https://github.com/novakellogs/polylines-maps",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-react-html-attrs": "^2.0.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "stylus": "^0.54.5",
+    "webpack": "^2.5.1"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "nib": "^1.1.2"
+  }
+}

@@ -8,38 +8,5 @@
 
 {% block scripts %}
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script>
-
-    function initialize(){
-      axios.get('/api/routes')
-          .then(function(response){
-
-            function initMap() {
-
-              var element = document.getElementsByClassName("loader");
-              delete element;
-
-              var map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                  lat: response.data.routes[0].lat,
-                  lng: response.data.routes[0].lng
-                },
-                zoom: 13
-              });
-
-              var flightPath = new google.maps.Polyline({
-                path: response.data.routes,
-                geodesic: true,
-                strokeColor: '#FF0000',
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-              });
-
-              flightPath.setMap(map);
-            }
-            google.load("maps", "3", {"other_params": "sensor=false&key=AIzaSyCKcBrI7ULLNL-igiYaeZQ5oCNycm65YHc","callback" : initMap });
-        });
-    }
-  </script>
+  <script type="text/javascript" src="/static/js/app.js"></script>
 {% endblock scripts %}
