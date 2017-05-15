@@ -2,7 +2,10 @@
 
 Práctica para usar Flask como API REST y Google Maps
 
+NOTA: Para esta versión del proyecto se utilizó la versión 3.5 de Python.
+
 ## ☀️ Antes de comezar
+
 
 1. Clonar este repositorio en el directorio donde estes trabajando con proyectos:
 
